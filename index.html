@@ -15,19 +15,45 @@
 
     <div class="container">
         <div class="logos">
-        <img class="card" src="logos/google-logo.png"/>
+            <img class="card" src="logos/google-logo.png" />
+            <!-- Trigger/Open The Modal -->
+            <p onclick="openModal()">Open Modal</p>
+
+
         </div>
         <div class="sidebar">
             <div id="stats">
-                
+
             </div>
             <div id="menu">
-                
+
             </div>
 
         </div>
     </div>
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span onclick="closeModal()"     class="close">&times;</span>
+                <h2>Memoria</h2>
+            </div>
+            <div class="modal-body">
+                <p>Instrucciones del juego</p>
+
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
