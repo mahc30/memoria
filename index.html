@@ -14,9 +14,8 @@
 
     <div class="container">
         <div class="logos">
-            <img onclick="openModal()"  class="card" src="logos/google-logo.png" />
-            <!-- Trigger/Open The Modal -->
-            <p onclick="openModal()">Open Modal</p>
+            <img class="card" src="logos/google-logo.png"/>
+
 
 
         </div>
@@ -25,7 +24,8 @@
 
             </div>
             <div id="menu">
-
+                <!-- Trigger/Open The Modal -->
+                <button onclick="openModal()">Open Modal</button>
             </div>
 
         </div>
@@ -39,7 +39,7 @@
 
         <div class="modal-content">
             <div class="modal-header">
-                <span onclick="closeModal()"     class="close">&times;</span>
+                <span onclick="closeModal()" class="close">&times;</span>
                 <h2>Memoria</h2>
             </div>
             <div class="modal-body">
@@ -56,4 +56,5 @@
 </body>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="js/app.js"></script>
+
 </html>

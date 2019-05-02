@@ -2,6 +2,7 @@
 	padding:0;
 	margin:0;
 	box-sizing: border-box;
+    
 }
 
 
@@ -132,3 +133,21 @@ body{
   cursor: pointer;
 }     
 
+
+
+
+#menu > button {
+    position: relative;
+    top: 70%;
+    left: 10%;
+    margin-bottom: 1%;
+}
+
+#stats {
+    height: 50%;
+}
+
+#menu {
+    height: 50%;
+    
+}
