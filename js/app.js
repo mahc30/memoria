@@ -90,7 +90,6 @@ function guessImage(src) {
             child[index].src = "./logos/" + actualLogo + ".png";
         }
         console.log("./logos/" + actualLogo + ".png")
-        tempLogo.splice(tempLogo.indexOf(actualLogo));
     }
     shuffle(child);
     child.forEach(element => {
