@@ -1,6 +1,7 @@
 var modal = document.getElementById('myModal');
 var container = document.getElementById("logos");
 var logos;
+var selectedLogo;
 // When the user clicks on the button, open the modal
 function openModal() {
     modal.style.display = "block";
@@ -27,7 +28,7 @@ function imgOnClick() {
 function move(time) {
     var progress = document.getElementById("LoadingBar");
     var e = document.getElementById("Progress");
-
+    var src = document.getElementsByClassName("bigcard")[0].src;
     var width = 100;
     var actualTime = time;
     var id = setInterval(frame, 10 * time);
@@ -38,7 +39,7 @@ function move(time) {
         if (width <= 0) {
             e.innerHTML = "";
             clearInterval(id);
-            guessImage(document.getElementsByClassName("bigcard")[0].src);
+            guessImage(src);
         } else {
             width--;
             actualTime -= (10 * time) / 1000;
@@ -59,7 +60,8 @@ function rememberImage(time) {
     var img = document.createElement("img");
     img.setAttribute("class", "bigcard");
     img.addEventListener("click", () => move(time));
-    img.src = "./logos/" + shuffle(logos)[0] + ".png";
+    selectedLogo = shuffle(logos)[0];
+    img.src = "./logos/" + selectedLogo + ".png";
     container.appendChild(img);
     var progrss = document.createElement("div");
     var elem = document.createElement("div");
@@ -72,9 +74,29 @@ function rememberImage(time) {
 
 function guessImage(src) {
     clearContainer();
-    var p = document.createElement("p");
-    p.innerHTML = "Implementar Segunda parte";
-    container.appendChild(p);
+    let asignado = false;
+    let child = new Array(16);
+    let tempLogo = logos;
+    let actualLogo = "";
+    tempLogo.splice(tempLogo.indexOf(selectedLogo), 1);
+    for (let index = 0; index < child.length; index++) {
+        child[index] = document.createElement("img");
+        !asignado ? child[index].addEventListener("click", () => validClick()) : child[index].addEventListener("click", () => wrongClick());
+        if (!asignado) {
+            child[index].src = src;
+            asignado = true;
+        } else {
+            actualLogo = shuffle(tempLogo)[0]
+            child[index].src = "./logos/" + actualLogo + ".png";
+        }
+        console.log("./logos/" + actualLogo + ".png")
+        tempLogo.splice(tempLogo.indexOf(actualLogo));
+    }
+    shuffle(child);
+    child.forEach(element => {
+        element.setAttribute("class", "card");
+        container.appendChild(element);
+    });
 }
 
 function readTextFile(file) {
@@ -119,3 +141,11 @@ function shuffle(array) {
 }
 
 rememberImage(10);
+
+function validClick() {
+    alert("yay");
+}
+
+function wrongClick() {
+    alert("Upss");
+}
