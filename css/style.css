@@ -5,7 +5,7 @@
 }
 
 header {
-    background: white;
+    background: rgb(117, 211, 117);
     padding: 20px;
 }
 
@@ -20,13 +20,13 @@ body {
 
 #logos {
     position: fixed;
-    background: #0055FF;
+    background: rgba(144, 238, 144, 0.712);
     height: 100%;
     width: 75%;
 }
 
 .card {
-    background: #0022FF;
+    background: white;
     width: 20%;
     height: 20%;
 }
@@ -37,13 +37,17 @@ body {
     padding-left: 27%;
 }
 
+.bigcard:hover {
+    border: black;
+}
+
 .card:hover {
     cursor: pointer;
     background: #0088FF
 }
 
 .sidebar {
-    background: red;
+    background: lightgreen;
     position: fixed;
     left: 75%;
     width: 100%;

@@ -72,7 +72,9 @@ function rememberImage(time) {
 
 function guessImage(src) {
     clearContainer();
-
+    var p = document.createElement("p");
+    p.innerHTML = "Implementar Segunda parte";
+    container.appendChild(p);
 }
 
 function readTextFile(file) {
@@ -115,3 +117,5 @@ function shuffle(array) {
 
     return array;
 }
+
+rememberImage(10);
