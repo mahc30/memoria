@@ -63,7 +63,7 @@ body {
 /* The Modal (background) */
 
 .modal {
-    display: none;
+    display: block;
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
@@ -83,6 +83,15 @@ body {
     /* Black w/ opacity */
 }
 
+.menu{
+    position: relative;
+    left: 10%;
+}
+
+.stats{
+    position: relative;
+    left: 7%;
+}
 
 /* Modal Header */
 
@@ -157,13 +166,19 @@ body {
 
 #menu>button {
     position: relative;
-    top: 70%;
-    left: 10%;
+    top: 60%;
+    left: 0%;
     margin-bottom: 1%;
 }
 
 #stats {
     height: 50%;
+    padding-top: 5%;
+}
+
+#stats > h1{
+
+    margin-bottom: 1em;
 }
 
 #menu {
