@@ -2,6 +2,16 @@ var modal = document.getElementById('myModal');
 var container = document.getElementById("logos");
 var logos;
 var selectedLogo;
+var tiempo= document.getElementById("tiempo");
+var streak  = document.getElementById("racha");     
+var ultimoTiempo = document.getElementById("ultimo-tiempo");
+var puntaje = document.getElementById("puntaje");
+var lastTime = 0;
+var TimeStat = 0;
+var racha = 0;
+var Puntos = 0;
+var rememberImageTime =1;
+var addTime;
 // When the user clicks on the button, open the modal
 function openModal() {
     modal.style.display = "block";
@@ -39,6 +49,7 @@ function move(time) {
         if (width <= 0) {
             e.innerHTML = "";
             clearInterval(id);
+            addTime = setInterval(() => {TimeStat = TimeStat + 1; tiempo.innerText = TimeStat +" s";; },1000);
             guessImage(src);
         } else {
             width--;
@@ -117,7 +128,7 @@ function readTextFile(file) {
     rawFile.send(null);
 }
 
-readTextFile("../logos/logos.txt")
+
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -138,13 +149,34 @@ function shuffle(array) {
 
     return array;
 }
+readTextFile("../logos/logos.txt");
+rememberImage(1);
 
-rememberImage(10);
+
 
 function validClick() {
+
+
+    if(!(rememberImageTime <= 0.3)) {
+        rememberImageTime -= 0.1;
+    }
+  
     alert("yay");
+    clearInterval(addTime);
+   streak.innerText = racha+=1;
+   readTextFile("../logos/logos.txt")
+   rememberImage(rememberImageTime);
+   move(1)
+   Puntos += 1
+   Puntos *= racha != 0 ? racha : 1;
+   puntaje.innerText = Puntos;
+   ultimo_tiempo = TimeStat;
+   ultimoTiempo.innerText = ultimo_tiempo;
+
 }
 
 function wrongClick() {
     alert("Upss");
+    streak.innerText = racha =0;
+
 }
