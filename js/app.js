@@ -1,9 +1,10 @@
+
 var modal = document.getElementById('myModal');
 var container = document.getElementById("logos");
-var logos;
+var logos = [];
 var selectedLogo;
 var tiempo= document.getElementById("tiempo");
-var streak  = document.getElementById("racha");     
+var streak  = document.getElementById("racha");
 var ultimoTiempo = document.getElementById("ultimo-tiempo");
 var puntaje = document.getElementById("puntaje");
 var lastTime = 0;
@@ -12,6 +13,27 @@ var racha = 0;
 var Puntos = 0;
 var rememberImageTime =1;
 var addTime;
+
+logos.push('Alienware');
+logos.push('Apple');
+logos.push('Cocacola');
+logos.push('facebook');
+logos.push('google');
+logos.push('Huawei');
+logos.push('Instagram');
+logos.push('JuanValdez');
+logos.push('Linux');
+logos.push('McDonalds');
+logos.push('MetroMedellin');
+logos.push('Microsoft');
+logos.push('Motorola');
+logos.push('Pepsi');
+logos.push('Snapchat');
+logos.push('stackOverflow');
+logos.push('Starbucks');
+logos.push('Upb');
+logos.push('Volkswagen');
+console.log(logos);
 // When the user clicks on the button, open the modal
 function openModal() {
     modal.style.display = "block";
@@ -109,24 +131,7 @@ function guessImage(src) {
     });
 }
 
-function readTextFile(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText;
 
-                logos = allText.split("\n");
-                for (let index = 0; index < logos.length; index++) {
-                    logos[index] = logos[index].replace("\r", "");
-
-                }
-            }
-        }
-    }
-    rawFile.send(null);
-}
 
 
 
@@ -149,7 +154,7 @@ function shuffle(array) {
 
     return array;
 }
-readTextFile("../logos/logos.txt");
+//readTextFile("../logos/logos.txt");
 rememberImage(1);
 
 
@@ -157,14 +162,14 @@ rememberImage(1);
 function validClick() {
 
 
-    if(!(rememberImageTime <= 0.3)) {
-        rememberImageTime -= 0.1;
+    if(!(rememberImageTime <= 0.05)) {
+        rememberImageTime -= 0.07;
     }
-  
-    alert("yay");
+
+    alert("Correcto");
     clearInterval(addTime);
    streak.innerText = racha+=1;
-   readTextFile("../logos/logos.txt")
+   //readTextFile("../logos/logos.txt")
    rememberImage(rememberImageTime);
    move(1)
    Puntos += 1
@@ -176,7 +181,7 @@ function validClick() {
 }
 
 function wrongClick() {
-    alert("Upss");
+    alert("Incorrecto");
     streak.innerText = racha =0;
 
 }
